@@ -1,0 +1,29 @@
+<button class="btn btn-success" (click)="addUser()"> Add Employee</button>
+<a [routerLink]="['/employee/add']" > new </a>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Genger</th>
+      <th>Country</th>
+      <th>City</th>
+      <th>Date of Birth</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let value of employeeList">
+      <td>{{ value.name }}</td>
+      <td>{{ value.gender }}</td>
+      <td>{{ value.country }}</td>
+      <td>{{ value.city }}</td>
+      <td>{{ value.dob }}</td>
+      <td>
+          <a [routerLink]="['/employee/edit', value.id]" class="btn btn-primary">Edit</a>
+     |
+        <button class="btn btn-danger" (click)="deleteUser(value)">Delete</button>
+
+      </td>
+    </tr>
+  </tbody>
+</table>
